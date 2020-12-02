@@ -1,2 +1,7 @@
 https://medium.com/@m.monroyc22/configurar-entorno-virtual-python-a860e820aace
 
+1.-pip install virtualenv
+
+#Creando el entorno virtual
+
+2.-virtualenv nombre_de_tu_entorno -p python3
