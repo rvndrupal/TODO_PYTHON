@@ -1,0 +1,54 @@
+1.- python -m venv [nom]   #crea el entorno virtual
+
+2.-cd prueba->cd Scripts> activate   #activar el entorno
+
+3.-pip install django
+
+4.-pip freeze --local  #Verifica los paquetes instalados
+
+5.-El proyecto se genera en la base no donde esta el virtual
+
+6.-en este caso es C:\Users\rodrigo.villanueva.c\Documents\TODO_PYTHON\CURSO_DJANGO_REST_PRO
+
+Nota.- Levenatar primero el entorno en este caso se llama prueba
+7.-django-admin startproject project01  #Crea un proyecto
+
+8.-cd project01->python manage.py runserver   #ejecuta ese proyecto
+
+
+################Proyecto basico###########################
+
+1.-crear el entorno
+python -m venv virempleados
+
+2.-Activar entorno
+cd virempleados->Script>activate
+
+#Nota entorno activo  (virempleados) C:\Users\rodrigo.villanueva.c\Documents\TODO_PYTHON\CURSO_DJANGO_REST_PRO\entornos\virempleados\Scripts>
+3.-Instalar Django -> pip install django
+
+4.-Regresar a Entorno crear el proyecto
+django-admin startproject pro_empleados
+
+5.-Estando en pro_empleados-> python manage.py runserver
+
+6.-Corregir lenguaje->settings.py  LANGUAGE_CODE = 'en-us'  -> LANGUAGE_CODE = 'es'
+https://github.com/django/django/blob/master/django/conf/global_settings.py
+
+7.-Modificar el settings.py
+    .-Crear carpeta settings
+    .-crear archivos base.py,local.py,prod.py
+    .-crear __init__.py
+
+    .-Correr de la siguiente manera
+    <a href="Img_curso/Run_settings.png">run settings nuevo</a>
+    #python manage.py runserver --settings=pro_empleados.settings.local   #nota todo en en el segunod pro_empleados
+
+8.-Crear Aplicacion
+    .-Crear carpeta applications fuera del pro_empleados-> quedaria en el primero
+    .-crear el __init__.py
+    .-dentro de apllications -> django-admin startapp "nombre"
+    <a href="Img_curso/Crear_aplicacion.png">Crear_aplicacion</a>
+    
+
+
