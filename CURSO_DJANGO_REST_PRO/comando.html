@@ -84,3 +84,41 @@ https://github.com/django/django/blob/master/django/conf/global_settings.py
 
 15.-Modelos Relacionados.
 .-<a href="Img_curso/Relaciones_uno.png">Relaciones uno</a> 
+
+16.-Postgress Sql shell
+    .-blog --> https://neunapp.com/contenido/crear-base-de-datos-postgres-en-windows-10-desde-sqlshell-19082
+    .- CREATE DATABASE “nombre_bd”;
+    .- CREATE USER “nombre_usuario”;  #crear un usuario
+    .- \c  dbempleado  #entrar a la base de datos
+    .- ALTER ROLE “usuario_creado” WITH PASSWORD 'una_contraseña'; 
+    .-<a href="Img_curso/USER_POSTGRES.png">USER POSTGRESS</a>
+    
+    .-Instalar pip install psycopg2  #muy importante
+
+    .-Cambiar configuración del local a -Postgress
+    .--<a href="Img_curso/Configurar_local_base.png">USER POSTGRESS</a>
+    .-hacer las migraciones.
+    .-Crear de nuevo el super usuario
+
+17.-Admin de Django.
+    .-<a href="Img_curso/Admin_meta.png">Admin Meta</a>
+    .-Carga muchos a muchos.
+    .-<a href="Img_curso/Relacion_muchos_muchos.png">Relacion muchos a muchos</a>
+    .-<a href="Img_curso/Elementos_tabla.png">Muestra los elementos de la tabla</a> 
+    .-<a href="Img_curso/Filtros_2.png">Filtros many to many </a>
+    .-<a href="Img_curso/Filtros_2._resultado.png">Resultado </a>
+    .-<a href="Img_curso/Combinar_campos_tabla.png">combinar campos en la tabla de Resultados </a>
+    .- APP DE TERCEROS.
+    .-https://pypi.org/
+    .-https://django-ckeditor.readthedocs.io/en/latest/
+    .-pip install django-ckeditor
+    .-Add ckeditor_uploader to your INSTALLED_APPS setting.  agregarlo a nuestras instalaciones.
+    .-<a href="Img_curso/Ckeditor.png">Configurar Ckeditor </a>
+    .-Importar -> from ckeditor.fields import RichTextField
+    .-Actualizar la migración.
+
+18.-Manejo de las Vistas.
+.-PAGINA SUPER IMPORTANTE DE DJANGO---> ccbv.co.uk
+.-<a href="Img_curso/ListView_todos_los_datos.png">Todos listview</a>
+    
+

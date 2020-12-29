@@ -1,0 +1,14 @@
+<h1>Lista de todas las Personas</h1>
+
+<ul>    
+    {% for dato in  lp  %}
+        <li>{{dato}}</li>
+    {% endfor %}        
+</ul>
+
+<ul>    
+    {% for dato in  lp  %}
+        <li>{{dato.first_name}}--{{dato.last_name}}</li>
+       
+    {% endfor %}        
+</ul>

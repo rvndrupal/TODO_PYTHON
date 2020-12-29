@@ -1,0 +1,19 @@
+
+<h1>Lista por Departamentos</h1>
+
+<!--Recuperar con {{object_list}}-->
+<ul>
+    
+    {% for dato in object_list  %}
+    <li>{{dato}}</li>
+        
+    {% endfor %}
+        
+</ul>
+
+<ul>    
+    {% for dato in  object_list  %}
+        <li>{{dato.first_name}}--{{dato.last_name}}</li>
+       
+    {% endfor %}        
+</ul>

@@ -1,0 +1,20 @@
+
+<h1>Lista por Departamentos por caja de texto</h1>
+
+<!--Recuperar con {{object_list}}-->
+<form method="GET">
+    {% csrf_token  %}
+    <input type="text" id="empleado" name="empleado" placeholder="Empleado a Buscar">
+    <button type="submit">Buscar</button>
+
+</form>
+
+
+
+
+<ul>    
+    {% for dato in  lp  %}
+        <li>{{dato.first_name}}--{{dato.last_name}}</li>
+       
+    {% endfor %}        
+</ul>
