@@ -38,7 +38,7 @@ class Empleado(models.Model):
     #Relacion de muchos a muchos con la tabla habilidades de arriba
     habilidades = models.ManyToManyField(Habilidades)
     #Para el Ckeditor
-    hoja_vida= RichTextField()
+    hoja_vida= RichTextField() 
     
     class Meta:
         verbose_name="Empleado"
