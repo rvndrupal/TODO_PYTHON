@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView,CreateView,TemplateView
+
+from django.urls import reverse_lazy
 
 from .models import *
 
@@ -45,4 +47,43 @@ class ListporCaja(ListView):
         )
         return lista
     
-  
+#Habilidades del empleado relacion manytomany
+class ListaHabilidades(ListView):
+    template_name='persona/list_Habilidades.html'
+    context_object_name='lph' 
+    
+    def get_queryset(self):
+        empleado=Empleado.objects.get(id=2) #Obtengo un empleado especifico
+        Habi=empleado.habilidades.all() #con la funcion all se trae todas sus habilidades.
+        return  Habi
+    
+    
+#Detalles de una vista el  famoso ver más
+class Empleado_DetailView(DetailView):
+    template_name = "persona/Detalle_persona.html"
+    model = Empleado
+    
+    #Se pueden mandar datos de otro tipo
+    def get_context_data(self, **kwargs):
+        context = super(Empleado_DetailView, self).get_context_data(**kwargs)
+        context["titulo"] = "Empleado del mes" 
+        return context
+    
+
+
+#Crear empleados
+
+
+class SuccessView(TemplateView):
+    template_name = "persona/success.html"
+
+class EmpleadosCreateView(CreateView):
+    model = Empleado
+    template_name = "persona/add-persona.html"
+    #fields=['first_name','last_name','job']
+    fields=('__all__')
+    #success_url='.' #con esto le digo que se valla a la misma pagina
+    #muy importante agregar la libreria arriba reverse_lazy
+    success_url=reverse_lazy('persona_app:add_empleado')
+    
+    Video-> 51

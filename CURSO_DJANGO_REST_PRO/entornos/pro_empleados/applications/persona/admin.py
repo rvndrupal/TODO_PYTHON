@@ -9,6 +9,7 @@ admin.site.register(Habilidades)
 
 class EmpleadosAdmin(admin.ModelAdmin):
     list_display =(
+        'id',
         'first_name',
         'last_name',
         'departamento',
