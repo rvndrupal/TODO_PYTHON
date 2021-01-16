@@ -5,6 +5,10 @@ from django.views.generic import TemplateView, ListView, CreateView
 #modelos
 from .models import *
 
+#importar el forms
+
+from .forms import *
+
 
 
 class PruebaView(TemplateView):
@@ -21,11 +25,19 @@ class ListaPrueba3(ListView):
     context_object_name='lp3'
     model=Prueba3
     
-
+'''
 class Prueba3CreateView(CreateView):
     model = Prueba3
     template_name = "home/add.html"
     fields=['titulo','subtitulo','cantidad']
+    success_url='/'
+'''    
+class Prueba3CreateView(CreateView):
+    model = Prueba4
+    template_name = "home/add.html"
+    #fields=['titulo','subtitulo','cantidad']
+    form_class=PruebasForm  #toma todo lo del forms
+    success_url='/'
 
     
     

@@ -29,6 +29,8 @@ class Empleado(models.Model):
     
     first_name = models.CharField('Nombres', max_length=50)
     last_name = models.CharField('Apellidos', max_length=50)
+    full_name = models.CharField('Nombre completo', max_length=120, blank=True) #que no es obligatorio
+    
     job = models.CharField('Trabajo', max_length=1, choices=Job)  #Lista de Opciones el valor que se guarda en la base es el numero
     #ojo primero importar el modelo al que se va a relacionar
     #Luego s epone el model a relacionar
@@ -39,6 +41,7 @@ class Empleado(models.Model):
     habilidades = models.ManyToManyField(Habilidades)
     #Para el Ckeditor
     hoja_vida= RichTextField() 
+    foto = models.ImageField(upload_to="empleado", blank=True, null=True)
     
     class Meta:
         verbose_name="Empleado"

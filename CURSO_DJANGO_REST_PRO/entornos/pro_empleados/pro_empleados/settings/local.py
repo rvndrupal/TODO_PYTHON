@@ -28,3 +28,11 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#configurar los archivos estaticos desde la carpeta static
+STATICFILES_DIRS=[BASE_DIR.child('static')]  #el dir viene de Base apunta a la carpeta static que esta en raiz
+
+
+#Para configurar que todos los archivos multimedia esten en la carpeta media.
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR.child('pro_empleados.media')

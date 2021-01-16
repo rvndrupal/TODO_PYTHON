@@ -1,19 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
 
-<h1>Lista por Departamentos</h1>
+{% block title %}
+Listar Departamentos
+{% endblock title %}
 
-<!--Recuperar con {{object_list}}-->
-<ul>
-    
-    {% for dato in object_list  %}
-    <li>{{dato}}</li>
-        
-    {% endfor %}
-        
-</ul>
+{% block content %}
+{% include 'includes/header.html' %}
 
-<ul>    
-    {% for dato in  object_list  %}
-        <li>{{dato.first_name}}--{{dato.last_name}}</li>
-       
-    {% endfor %}        
-</ul>
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Lista Empleados</h1>
+        <!-- <form class="cell grid-x grid-margin-x" method="GET">
+          {% csrf_token %}
+            <div class="cell large-7">
+                <input type="text" name="empleado" id="empleado" placeholder="Buscar empleado">
+            </div>
+            <div class="cell large-2">
+                <button type="submit" class="button">Buscar</button>
+            </div>
+        </form> -->
+
+        <div class="cell">
+            <table>
+                <thead>
+                  <tr>
+                    <th width="200">ID</th>
+                    <th>NOMBRES</th>
+                    <th width="150">APELLIDOS</th>
+                    <th width="150">NOMBRE COMPLETO</th>
+                    <th width="150">DEPARTAMENTO</th>
+                    <th width="150">ACCIÓN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for dato in  empleados  %}
+                  <tr>
+                    <td>{{dato.id}}</td>
+                    <td>{{dato.first_name}}</td>
+                    <td>{{dato.last_name}}</td>
+                    <td>{{dato.full_name}}</td>
+                    <td>{{dato.departamento}}</td>
+                    <td><a class="button warning" href="{% url 'persona_app:detalle_empleado' dato.id %}">Ver</a></td>
+                    
+                    <!-- <td><a class="button success" href="#">Editar</a></td>
+                    <td><a class="button alert" href="#">Eliminar</a></td> -->
+                  </tr>
+                {% endfor %}   
+                  
+                </tbody>
+              </table>
+        </div>
+
+        <!--Paginación-->
+        <div class="cell">          
+          {% if  is_paginated %}
+              <nav aria-label="Pagination">
+                <ul class="pagination">                  
+                  {% if page_obj.has_previous %}
+                    <li class="pagination-previous">
+                       <a href="?page={{page_obj.previous_page_number}}">Atras</a>
+                    </li>
+                  {% endif %} 
+
+                  {% for pagina in paginator.page_range %}                      
+                      {% ifequal pagina page_obj.number  %}  <!--compara la pagina con la actual--> 
+                          <li class="current"><span class="show-for-sr">You're on page</span> {{ pagina }}</li>
+                      {% else %}
+                          <li><a href="?page={{ pagina }}">{{ pagina }}</a></li>                               
+                      {% endifequal %}                       
+                  {% endfor %}          
+
+                  {% if page_obj.has_next  %}
+                    <li class="pagination-next">
+                      <a href="?page={{page_obj.next_page_number}}">Siguiente</a>
+                    </li>
+                  {% endif %} 
+                </ul>
+              </nav>            
+          {% endif %}          
+        </div>
+        <!--Paginación-->
+    </div>
+</div>
+
+{% endblock content %}
