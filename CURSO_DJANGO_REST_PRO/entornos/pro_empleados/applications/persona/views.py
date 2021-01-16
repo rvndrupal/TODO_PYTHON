@@ -117,7 +117,7 @@ class EmpleadosCreateView(CreateView):
     model = Empleado   
     #fields=['first_name','last_name','job']
     #fields=('__all__') mostrar todos
-    fields=['first_name','last_name','job','departamento','habilidades']
+    fields=['first_name','last_name','job','departamento','habilidades','foto']
     #success_url='.' #con esto le digo que se valla a la misma pagina
     #muy importante agregar la libreria arriba reverse_lazy
     success_url=reverse_lazy('persona_app:lista_admin')

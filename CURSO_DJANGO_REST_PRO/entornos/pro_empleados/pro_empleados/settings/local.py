@@ -35,4 +35,4 @@ STATICFILES_DIRS=[BASE_DIR.child('static')]  #el dir viene de Base apunta a la c
 
 #Para configurar que todos los archivos multimedia esten en la carpeta media.
 MEDIA_URL='/media/'
-MEDIA_ROOT=BASE_DIR.child('pro_empleados.media')
+MEDIA_ROOT=BASE_DIR.child('media')
