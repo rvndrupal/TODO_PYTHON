@@ -26,6 +26,8 @@ class ListAutores2(ListView):
         #cone el manager
         palabra=self.request.GET.get("nombre",'')
         #return Autor.objects.buscar_autor(palabra)
-        return Autor.objects.buscar_autor2(palabra)
+        #return Autor.objects.buscar_autor2(palabra)
+        #return Autor.objects.buscar_autor3(palabra)
+        return Autor.objects.buscar_autor4(palabra)
     
     
