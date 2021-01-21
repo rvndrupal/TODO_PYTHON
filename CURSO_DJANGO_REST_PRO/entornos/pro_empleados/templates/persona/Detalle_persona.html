@@ -1,11 +1,53 @@
-<h1>Detalle del empleado  {{titulo}} {{object.first_name}}</h1>
+{% extends 'base.html' %}
+{% load static %}
 
-<!--
-se recuperan con el {{object}}
--->
 
-{{object.first_name}}<p>
-{{object.last_name}}<p>
-{{object.job}}<p>
-{{object.departamento}}<p>
-{{object.habilidades}}
+{% block title %}
+Listado_empleados
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x aling-center">
+        
+        <div class="cell large-4 card" style="width: 300px; margin-top:20px">
+            <div class="card-divider">
+                {{object.get_job_display}}  
+                <!-- Para los elementos que son tipo choises -->
+            </div>
+            
+            {% if object.foto %}
+            <img src="{{ empleado.foto.url }}">
+            {% else %}
+            <img src="{% static 'img/pendiente.png' %}">
+            {% endif %}
+                
+            
+            <div class="card-section">
+                {{object.full_name}}
+                <p>{{ object.first_name}}</p>
+                <p>{{ object.last_name}}</p>
+                <!-- <p>{{ object.departamento}}</p>  -->
+                <!-- Para entrar a la parte de departamento solo con el punto -->
+                <p>{{ object.departamento.name}}</p> 
+                <!-- <p>{{ object.habilidades}}</p>  -->
+                <p><span class="label">Habilidades</span></p>
+                    <ul>                        
+                        {% for h in object.habilidades.all  %}
+                            <!-- <li>{{ h }}</li>  -->
+                            {{ h.habilidad }}  
+                            <!-- Sale del modelo habilidad para traer el dato especifico -->
+                        {% endfor %}
+                    </ul>
+            </div>
+            </div>
+
+            
+    </div>
+</div>
+
+{% endblock content %}
+
+

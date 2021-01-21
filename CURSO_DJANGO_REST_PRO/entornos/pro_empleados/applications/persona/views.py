@@ -6,6 +6,9 @@ from django.urls import reverse_lazy
 
 from .models import *
 
+from .forms import EmpleadoForm
+#se migra de EmpleadoForm del archivo forms.py
+
 # Create your views here.
 
 #inicio del proyecto uno
@@ -117,7 +120,9 @@ class EmpleadosCreateView(CreateView):
     model = Empleado   
     #fields=['first_name','last_name','job']
     #fields=('__all__') mostrar todos
-    fields=['first_name','last_name','job','departamento','habilidades','foto']
+    #fields=['first_name','last_name','job','departamento','habilidades','foto']
+    #ahora se muestra solo lo del archivo form.py
+    form_class=EmpleadoForm
     #success_url='.' #con esto le digo que se valla a la misma pagina
     #muy importante agregar la libreria arriba reverse_lazy
     success_url=reverse_lazy('persona_app:lista_admin')
